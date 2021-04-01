@@ -45,13 +45,8 @@ class Header extends Component {
                       <li className="nav-item">
                         <Link to={'/'} className="nav-link">Home</Link>
                       </li>
-                      <li className="nav-item dropdown">
-                        <Link to={'/#'} className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Sản Phẩm</Link>
-                        <ul className="dropdown-menu">
-                          <Link to={'/#'} className="dropdown-item">Sản Phẩm 1</Link>
-                          <Link to={'/#'} className="dropdown-item">Sản Phẩm 2</Link>
-                          <Link to={'/#'} className="dropdown-item">Sản Phẩm 3</Link>
-                        </ul>
+                      <li className="nav-item">
+                        <Link to={'/san-pham'} className="nav-link">Sản Phẩm</Link>
                       </li>
                       <li className="nav-item">
                         <Link to={'/bai-viet'} className="nav-link">Blog Sách</Link>
