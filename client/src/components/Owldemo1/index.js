@@ -13,7 +13,8 @@ class Owldemo1 extends Component {
           <OwlCarousel items={1}
             className="owl-theme"
             loop
-            margin={8} >
+            dots={false}
+            margin={10} >
             <div ><img className="img" src={'assets/img/banner-1.png'} /></div>
             <div><img className="img" src={'assets/img/banner-2.png'} /></div>
             <div><img className="img" src={'assets/img/banner-3.png'} /></div>
