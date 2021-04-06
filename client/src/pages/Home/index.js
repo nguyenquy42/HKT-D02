@@ -52,11 +52,13 @@ const Home = () => {
     <div>
       <Owldemo1></Owldemo1>
 
-      <section className="">
+      <section className="box">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2>Phổ biến</h2>
+              <div className="box__title">
+                <h2 className="Title_category">Phổ biến</h2>
+              </div>
             </div>
 
             {posts.map((post) => (
@@ -69,12 +71,14 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
-      <section className="">
+
+      <section className="box">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2>Bán chạy</h2>
+              <div className="box__title">
+                <h2 className="Title_category">Bán chạy</h2>
+              </div>
             </div>
 
             {posts.map((post) => (

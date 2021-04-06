@@ -46,9 +46,6 @@ class Header extends Component {
                         <Link to={'/'} className="nav-link">Home</Link>
                       </li>
                       <li className="nav-item">
-                        <Link to={'/san-pham'} className="nav-link">Sản Phẩm</Link>
-                      </li>
-                      <li className="nav-item">
                         <Link to={'/bai-viet'} className="nav-link">Blog Sách</Link>
                       </li>
                       <li className="nav-item">
