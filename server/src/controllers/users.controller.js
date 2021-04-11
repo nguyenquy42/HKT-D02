@@ -17,7 +17,7 @@ module.exports.getUserById = async (req, res) => {
 module.exports.createUser = async (req, res) => {
   const { email, password, firstName, lastName, birthday, gender } = req.body
 
-  if (!email || !password || !firstName || !lastName || !birthday || !gender) {
+  if (!email || !password ) {
     return res.json({
       isSuccess: false,
       message: 'Missing required fields',

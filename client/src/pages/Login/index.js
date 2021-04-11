@@ -1,60 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import axios from 'axios';
+import { SIGN_UP,URL } from "../../constants/variables";
 
-import './style.css'
+import "./style.css";
 
-
-const Login = ({ location }) => {
-  let history = useHistory();
+export default function Login() {
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
-  const [isFailure, setIsFailure] = useState(false)
+  const [password, setPassword] = useState("");
+  const [isFailure, setIsFailure] = useState(false);
+  let history = useHistory();
 
-  const handleSignIn = () => {
+  function handleSubmit(event) {
+    event.preventDefault();
+
     axios.post(`${URL}/login`, {
       email, password
     })
       .then(function (response) {
-        console.log("🚀 ~ file: index.js ~ line 21 ~ response", response)
-        if (response.data.isSuccess === true) {
-          history.push(`/chat?email=${email}`);
+        console.log(response);
+        if (response.data.status === "success") {
+          history.push({ pathname: '/home', state: { user: response.data.user } });
         } else {
-          history.push("/login");
+          console.log("mật khẩu hoặc tài khoản sai");
           setIsFailure(true)
         }
       })
-      .catch(function (error) {
-        history.push("/login");
-        setIsFailure(true)
-      });
-  };
+  }
 
   return (
-    <div className="container">
-      <div className="row d-flex justify-content-center">
-        <div className="col-6">
-          <div className="sign-in">
-            <h3 className="sign-in__header">Đăng Nhập</h3>
-            <div className="form-group">
-              <div className="form-group">
-                <input placeholder="Email" className="form-control" type="email" onChange={(event) => setEmail(event.target.value)} value={email} />
-              </div>
-              <div className="form-group">
-                <input placeholder="Mật khẩu" className="form-control mt-20" type="password" onChange={(event) => setPassword(event.target.value)} value={password} />
-              </div>
-              <div className="form-group">
-                <button className="btn" type="submit" onClick={handleSignIn}> Đăng Nhập </button>
-                <div className="sign-in__fail-text">{isFailure ? 'Email hoặc mật khẩu không chính xác' : ''}</div>
-                <button className="btn" type="submit" onClick={() => history.push('/sign-up')} > Đăng Ký </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="Login">
+      <div className="text-center">
+        <h2>Đăng Nhập</h2>
       </div>
+      <div className="text-center text-danger pt-2 pb-2">{isFailure ? 'Email hoặc mật khẩu không chính xác' : ''}</div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group size="lg" controlId="email">
+          <Form.Label>Email</Form.Label>
+        
+          <Form.Control
+            autoFocus
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="password">
+          <Form.Label>Mật Khẩu</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Button block size="lg" type="submit" onClick={handleSubmit}>
+          Đăng Nhập
+        </Button>
+        <Link to={`/sign-up`}>
+          <button className={"btn btn-outline-info w-100 mt-3 "} type="submit"> {SIGN_UP} </button>
+        </Link>
+      </Form>
     </div>
   );
-};
-
-export default Login;
+}

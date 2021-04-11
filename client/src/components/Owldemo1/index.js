@@ -9,7 +9,7 @@ class Owldemo1 extends Component {
   render() {
     return (
       <div>
-        <div class='container-fluid' >
+        <div className='container-fluid' >
           <OwlCarousel items={1}
             className="owl-theme"
             loop
