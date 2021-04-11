@@ -21,13 +21,14 @@ export default function SignUp() {
     axios.post(`${URL}/users`, {
       email, password
     })
-    .then(function (response) {
-      if (response.data.isSuccess === true) {
-        history.push(`/sign-up?email=${email}&password=${password}`);
-      } else {
-        history.push("/home");
-      }
-    })
+      .then(function (response) {
+        if (response.data.isSuccess === true) {
+          history.push(`/sign-up?email=${email}&password=${password}`);
+        } else {
+          history.push("/sign-up");
+          setIsFailure(true);
+        }
+      })
   }
 
   return (
@@ -35,11 +36,10 @@ export default function SignUp() {
       <div className="text-center">
         <h2>Đăng Ký</h2>
       </div>
-      <div className="text-center text-danger pt-2 pb-2">{isFailure ? 'Email hoặc mật khẩu không chính xác' : ''}</div>
+      <div className="text-center text-danger pt-2 pb-2">{isFailure ? 'Email đã tồn tại' : ''}</div>
       <Form onSubmit={handleSignUp}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
-
           <Form.Control
             autoFocus
             type="email"
