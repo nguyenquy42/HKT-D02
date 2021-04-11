@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import './style.css';
 import Owldemo1 from '../../components/Owldemo1';
 import List from '../../components/List';
+import About from '../../components/About';
 
 
 
@@ -32,6 +33,14 @@ const postList = [
     isClicked: false,
     img_url: "assets/img/product-3.jpg",
     price: 310000
+  },
+  {
+    id: uuidv4(),
+    author: "Minh Quý",
+    content: "Tâm Lý Học Hành Vi.",
+    isClicked: false,
+    img_url: "assets/img/product-4.jpg",
+    price: 78.400
   },
 ];
 
@@ -91,6 +100,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <About></About>
 
     </div>
   )

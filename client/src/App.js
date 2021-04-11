@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Detail from './pages/Detail';
 import './App.css';
 
 
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/sign-up" component={SignUp} />
+          <Route path="/detail" component={Detail} />
         </Switch>
 
         <Footer />

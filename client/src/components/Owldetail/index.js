@@ -5,7 +5,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './style.css';
 
-class Owldemo1 extends Component {
+class Owldetail extends Component {
   render() {
     return (
       <div>
@@ -14,12 +14,11 @@ class Owldemo1 extends Component {
             className="owl-theme"
             loop
             dots={false}
-            autoplay={true}
-            padding={0}
-            margin={0} >
-            <div ><img className="img" src={'assets/img/banner-1.png'} /></div>
-            <div><img className="img" src={'assets/img/banner-2.png'} /></div>
-            <div><img className="img" src={'assets/img/banner-3.png'} /></div>
+            margin={10} >
+            <div ><img className="img" src={'assets/img/detail/1.jpg'} /></div>
+            <div ><img className="img" src={'assets/img/detail/2.jpg'} /></div>
+            <div ><img className="img" src={'assets/img/detail/3.jpg'} /></div>
+            <div ><img className="img" src={'assets/img/detail/4.jpg'} /></div>
           </OwlCarousel>
         </div>
       </div>
@@ -27,4 +26,4 @@ class Owldemo1 extends Component {
   }
 }
 
-export default Owldemo1;
+export default Owldetail;

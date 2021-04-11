@@ -32,7 +32,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className="Login">
+    <div className="Login mt-5 mb-5">
       <div className="text-center">
         <h2>Đăng Ký</h2>
       </div>
@@ -58,7 +58,7 @@ export default function SignUp() {
         <Button block size="lg" type="submit" onClick={handleSignUp}>
           Đăng Ký
         </Button>
-        <Link to={`/sign-up`}>
+        <Link to={`/login`}>
           <button className={"btn btn-outline-info w-100 mt-3 "} type="submit"> Đăng Nhập </button>
         </Link>
       </Form>

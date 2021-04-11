@@ -33,7 +33,7 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
+    <div className="Login mt-5 mb-5">
       <div className="text-center">
         <h2>Đăng Nhập</h2>
       </div>
